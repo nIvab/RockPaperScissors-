@@ -33,7 +33,7 @@
                 let moveDecider = Math.random() ;
                 if(moveDecider <= 1/3){
                     return "rock" ;
-                } else if(moveDecider >= 1/3 && moveDecider <2/3){
+                } else if(moveDecider > 1/3 && moveDecider <= 2/3){
                     return "paper" ;
                 } else{
                     return "scissors" ;
@@ -72,8 +72,34 @@
                 
                 let compMove = compMoveGenerator() 
                 return whoIsTheWinner(playerMove, compMove) ; 
-
             }
+
+                function game() {
+                    console.log("We will play Rock, Paper, Scissors to the best of five!")
+                    let yourScore = 0 
+                    let compScore = 0 
+                    for(i=0; i<5 ; i++){
+                        yourMove = prompt("please enter a move: ")
+                        result = RockPaperScissors(yourMove)
+                        if(result=="you win!"){
+                            yourScore++
+                        } else if(result=="you lose!"){
+                            compScore++
+                        }else{
+                            console.log("Draw!")
+                        }
+
+                        console.log(`Score:     You: ${yourScore},  Computer: ${compScore}`)
+                    }
+                    if(yourScore>compScore){
+                        return "You win the tourney!" ; 
+                    } else if(compScore > yourScore){
+                        return "You lose the tourney!" ;
+                    } else{
+                        return "It was a draw!" ; 
+                    }
+            }
+
         </script>
     </body>
 </html>
